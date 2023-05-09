@@ -21,22 +21,17 @@
                 <h3>Lista de Tarefas</h3>
                 
                 <div class="all-todos">
-                    <div class="single-todo done">
-                        <p>Aprender HTML, CSS e Javascript</p>
-                    </div>
-                    <div class="single-todo done">
-                        <p>Aprender o básico de Vue JS</p>
-                    </div>
-                    <div class="single-todo">
-                        <p>Completar o desafio de Vue JS com excelência</p>
-                    </div>
-
+                    <template v-for="item in list">
+                        <div v-if="item.text !== null" class="single-todo">
+                            <p>{{ item.text }}</p>
+                        </div>
+                    </template>
                 </div>
 
                 <button class="clear">Limpar tudo</button>
 
-                <input type="text" placeholder="Escreva uma nova tarefa...">
-                <button class="add">Adicionar</button>
+                <input type="text" placeholder="Escreva uma nova tarefa..." v-model="itemList.text">
+                <button class="add" @click="addItem()">Adicionar</button>
 
                 <div class="instructions">
                     Instruções:
