@@ -1,22 +1,25 @@
-var todos = [];
-
 const handlingForms = {
     data() {
         return {
             itemList: {
-                done:false,
-                text:''
+                done: false,
+                text: ''
             },
-            list: window.todos
+            list: []
         }
     },
     methods: {
         addItem: function () {
-            this.list.push(this.itemList);
-            this.itemList = {
-                done:false,
-                text:''
+            if (this.itemList.text) {
+                this.list.push(this.itemList);
+                this.itemList = {
+                    done: false,
+                    text: ''
+                }
             }
+        },
+        clear: function () {
+            this.list = [];
         }
     }
 };
