@@ -31,10 +31,10 @@
                     </template>
                 </div>
 
-                <button class="clear" @click="list=[]" v-if="list.length">Limpar tudo</button>
+                <button class="clear" @click="list=[];storeTodos();" v-if="list.length">Limpar tudo</button>
 
                 <input type="text" placeholder="Escreva uma nova tarefa..." v-model="itemList.text">
-                <button class="add" @click="addItem()">Adicionar</button>
+                <button class="add" @click="addItem();storeTodos();">Adicionar</button>
 
                 <div class="instructions">
                     Instruções:
